@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobFit - Temukan Pekerjaan yang Tepat Untukmu</title>
+    <meta name="description" content="JobFit membantu para pencari kerja menemukan lowongan yang sesuai dengan skill dan tujuan karier mereka.">
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Ambient Background Glows -->
+    <div class="glow-top-left"></div>
+    <div class="glow-bottom-right"></div>
+
+    <!-- NAVBAR -->
+    <header class="fixed-top header-wrapper">
+        <div class="container d-flex justify-content-between align-items-center">
+            <!-- Brand -->
+            <a class="navbar-brand d-flex align-items-center gap-2 m-0 py-3" href="#">
+                <span class="brand-text">JobFit</span>
+                <span class="brand-dot"></span>
+            </a>
+
+            <!-- Hamburger for mobile -->
+            <button class="navbar-toggler-custom d-lg-none" id="navToggler" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+
+            <!-- Glass Floating Nav (desktop) -->
+            <nav class="glass-navbar px-4 py-2 d-none d-lg-flex align-items-center">
+                <ul class="navbar-nav d-flex flex-row gap-2 m-0 position-relative" id="navbarNav">
+                    <div class="nav-active-pill" id="navActivePill"></div>
+                    <li class="nav-item"><a class="nav-link active" href="#beranda">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#fitur">Fitur</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#cara-kerja">Cara Kerja</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+                </ul>
+            </nav>
+
+            <!-- Right Actions -->
+            <div class="nav-actions d-none d-lg-flex align-items-center gap-3">
+                <div class="avatar-circle"><span>AK</span></div>
+                <button class="btn btn-accent-primary" data-bs-toggle="modal" data-bs-target="#fitCalculatorModal">
+                    Cek Kecocokanmu
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu d-lg-none" id="mobileMenu">
+            <ul class="list-unstyled m-0 p-0">
+                <li><a href="#beranda" class="mobile-nav-link">Beranda</a></li>
+                <li><a href="#fitur" class="mobile-nav-link">Fitur</a></li>
+                <li><a href="#cara-kerja" class="mobile-nav-link">Cara Kerja</a></li>
+                <li><a href="#kontak" class="mobile-nav-link">Kontak</a></li>
+            </ul>
+            <button class="btn btn-accent-primary w-100 mt-3" data-bs-toggle="modal" data-bs-target="#fitCalculatorModal">
+                Cek Kecocokanmu
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section id="beranda" class="hero-section min-vh-100 d-flex align-items-center">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    
+                    <!-- Hero Text -->
+                    <div class="col-lg-6 hero-text-col reveal">
+                        <div class="hero-badge mb-3 d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill">
+                            <span class="badge-dot"></span>
+                            <span class="text-secondary small font-medium">Mesin Kualifikasi Cerdas</span>
+                        </div>
+
+                        <h1 class="hero-title display-3 fw-bold text-white mb-4">
+                            Temukan Pekerjaanmu,<br>
+                            Bukan Sekadar Lowongan.
+                        </h1>
+
+                        <p class="hero-subtitle lead text-secondary mb-4">
+                            Temukan pekerjaan yang benar-benar sesuai dengan skill dan tujuan kariermu — sebelum kamu melamar.
+                        </p>
+
+                        <div class="hero-cta-group d-flex flex-wrap gap-3">
+                            <button class="btn btn-accent-primary btn-lg px-4 py-3" data-bs-toggle="modal" data-bs-target="#fitCalculatorModal">
+                                Cek Kecocokanmu
+                            </button>
+                            <a href="#fitur" class="btn btn-clean-secondary btn-lg px-4 py-3">
+                                Pelajari Lebih Lanjut
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Hero Dashboard Mockup -->
+                    <div class="col-lg-6 hero-visual-col reveal reveal-delay-1">
+                        <div class="glass-card main-dashboard-single p-4 p-md-5 rounded-4">
+                            
+                            <div class="d-flex align-items-center justify-content-between pb-4 mb-4 border-bottom-subtle">
+                                <div>
+                                    <h2 class="h4 text-white fw-bold mb-1">Business Analyst</h2>
+                                    <span class="text-secondary small d-block">PT Digital Nusantara</span>
+                                    <span class="text-secondary x-small d-block text-muted mt-1"><i class="bi bi-geo-alt me-1"></i>Jakarta • Hybrid</span>
+                                </div>
+                                <div class="match-score-badge text-end">
+                                    <span class="score-label text-secondary x-small d-block mb-1">SKOR KECOCOKAN</span>
+                                    <span class="score-number text-accent fw-bold h2 mb-0 counter-anim" data-target="87">87%</span>
+                                </div>
+                            </div>
+
+                            <div class="skills-breakdown-wrapper d-flex flex-column gap-4">
+                                
+                                <div class="matched-skills-group">
+                                    <div class="d-flex align-items-center justify-content-between mb-2">
+                                        <span class="text-white small fw-semibold">Skill yang Sesuai</span>
+                                        <span class="badge bg-dark-pill text-accent x-small">3 Cocok</span>
+                                    </div>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <span class="skill-tag skill-matched"><i class="bi bi-check2 me-1"></i>SQL</span>
+                                        <span class="skill-tag skill-matched"><i class="bi bi-check2 me-1"></i>Excel</span>
+                                        <span class="skill-tag skill-matched"><i class="bi bi-check2 me-1"></i>Power BI</span>
+                                    </div>
+                                </div>
+
+                                <div class="missing-skills-group">
+                                    <div class="d-flex align-items-center justify-content-between mb-2">
+                                        <span class="text-white small fw-semibold">Skill yang Perlu Ditingkatkan</span>
+                                        <span class="badge bg-dark-pill text-secondary x-small">1 Kurang</span>
+                                    </div>
+                                    <div class="d-flex flex-wrap gap-2">
+                                        <span class="skill-tag skill-missing">• Requirement Gathering</span>
+                                    </div>
+                                </div>
+
+                                <div class="pt-2">
+                                    <div class="d-flex justify-content-between text-secondary x-small mb-2">
+                                        <span>Kompatibilitas Skill Keseluruhan</span>
+                                        <span class="text-white fw-medium">87%</span>
+                                    </div>
+                                    <div class="progress custom-progress bg-secondary-dark" style="height: 6px;">
+                                        <div class="progress-bar bg-accent animated-bar" role="progressbar" style="width: 0%;" data-width="87%" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- FEATURES SECTION -->
+        <section id="fitur" class="features-section py-5">
+            <div class="container py-5">
+                
+                <div class="text-center max-w-700 mx-auto mb-5 reveal">
+                    <h2 class="section-title display-5 fw-bold text-white mb-3">Mengapa JobFit?</h2>
+                    <p class="section-subtitle lead text-secondary">
+                        Semua yang kamu butuhkan untuk menemukan peluang yang benar-benar sesuai.
+                    </p>
+                </div>
+
+                <div class="row g-4">
+                    
+                    <!-- Feature 1 -->
+                    <div class="col-lg-8 reveal">
+                        <div class="glass-card p-4 p-md-5 rounded-4 h-100 d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="feature-icon mb-3">
+                                    <i class="bi bi-speedometer2 text-accent fs-4"></i>
+                                </div>
+                                <h3 class="h4 text-white fw-bold mb-3">1. Skor Kecocokan Skill</h3>
+                                <p class="text-secondary mb-4">
+                                    Lihat secara langsung seberapa cocok skillmu dengan suatu lowongan kerja. Tidak perlu lagi menebak-nebak apakah kamu memenuhi syarat.
+                                </p>
+                            </div>
+                            <div class="p-3 rounded-3 bg-secondary-card border-glass">
+                                <div class="d-flex align-items-center justify-content-between text-secondary small">
+                                    <span class="d-flex align-items-center gap-2">
+                                        <i class="bi bi-cpu text-accent"></i> Indeks Kualifikasi Otomatis
+                                    </span>
+                                    <span class="text-accent fw-bold">Cek Instan</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="col-lg-4 reveal reveal-delay-1">
+                        <div class="glass-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="feature-icon mb-3">
+                                    <i class="bi bi-list-check text-accent fs-4"></i>
+                                </div>
+                                <h3 class="h5 text-white fw-bold mb-2">2. Rincian Persyaratan</h3>
+                                <p class="text-secondary small mb-4">
+                                    Ketahui skill yang sudah kamu miliki dan yang masih perlu dipelajari sebelum melamar.
+                                </p>
+                            </div>
+                            <div class="p-3 rounded-3 bg-secondary-card border-glass text-secondary x-small">
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-white"><i class="bi bi-check-circle text-accent me-1"></i> Terpenuhi</span>
+                                    <span class="text-secondary"><i class="bi bi-dash-circle me-1"></i> Kurang</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="col-md-4 reveal">
+                        <div class="glass-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="feature-icon mb-3">
+                                    <i class="bi bi-funnel text-accent fs-4"></i>
+                                </div>
+                                <h3 class="h5 text-white fw-bold mb-2">3. Filter Lowongan Cerdas</h3>
+                                <p class="text-secondary small mb-4">
+                                    Temukan lowongan yang relevan lebih cepat tanpa membuang waktu untuk yang tidak sesuai.
+                                </p>
+                            </div>
+                            <div class="p-3 rounded-3 bg-secondary-card border-glass text-secondary x-small d-flex gap-2">
+                                <span class="badge bg-dark-pill text-white">Jakarta</span>
+                                <span class="badge bg-dark-pill text-accent">&gt;80% Cocok</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="col-md-4 reveal reveal-delay-1">
+                        <div class="glass-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="feature-icon mb-3">
+                                    <i class="bi bi-bookmark text-accent fs-4"></i>
+                                </div>
+                                <h3 class="h5 text-white fw-bold mb-2">4. Simpan Lowongan</h3>
+                                <p class="text-secondary small mb-4">
+                                    Simpan lowongan menarik untuk dilamar nanti dan akses kapan saja kamu siap.
+                                </p>
+                            </div>
+                            <div class="p-3 rounded-3 bg-secondary-card border-glass text-secondary x-small d-flex align-items-center justify-content-between">
+                                <span class="text-white">Daftar Simpanan</span>
+                                <i class="bi bi-bookmark-fill text-accent"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Feature 5 -->
+                    <div class="col-md-4 reveal reveal-delay-2">
+                        <div class="glass-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="feature-icon mb-3">
+                                    <i class="bi bi-graph-up text-accent fs-4"></i>
+                                </div>
+                                <h3 class="h5 text-white fw-bold mb-2">5. Wawasan Karier</h3>
+                                <p class="text-secondary small mb-4">
+                                    Pahami tren karier dan skill yang sedang paling banyak dicari industri saat ini.
+                                </p>
+                            </div>
+                            <div class="p-3 rounded-3 bg-secondary-card border-glass text-secondary x-small d-flex justify-content-between align-items-center">
+                                <span class="text-white">Permintaan Pasar Skill</span>
+                                <span class="text-accent fw-bold"><i class="bi bi-arrow-up-right me-1"></i>+34%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- HOW IT WORKS SECTION -->
+        <section id="cara-kerja" class="how-it-works-section py-5">
+            <div class="container py-5">
+                
+                <div class="text-center max-w-700 mx-auto mb-5 reveal">
+                    <h2 class="section-title display-5 fw-bold text-white mb-3">Cara Kerja JobFit</h2>
+                    <p class="section-subtitle lead text-secondary">
+                        Empat langkah mudah untuk menemukan pekerjaan yang sesuai dengan skillmu.
+                    </p>
+                </div>
+
+                <div class="row g-4">
+                    
+                    <div class="col-sm-6 col-lg-3 reveal">
+                        <div class="glass-card p-4 rounded-4 h-100 step-card">
+                            <span class="step-num text-secondary fw-bold display-6 d-block mb-3">01</span>
+                            <h3 class="h5 text-white fw-bold mb-2">Tambahkan Skillmu</h3>
+                            <p class="text-secondary small mb-0">
+                                Masukkan skill yang kamu miliki ke dalam profil JobFit-mu dengan mudah.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3 reveal reveal-delay-1">
+                        <div class="glass-card p-4 rounded-4 h-100 step-card">
+                            <span class="step-num text-secondary fw-bold display-6 d-block mb-3">02</span>
+                            <h3 class="h5 text-white fw-bold mb-2">Temukan Lowongan yang Cocok</h3>
+                            <p class="text-secondary small mb-0">
+                                Sistem kami mencarikan lowongan yang paling relevan dengan profilmu secara otomatis.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3 reveal reveal-delay-2">
+                        <div class="glass-card p-4 rounded-4 h-100 step-card">
+                            <span class="step-num text-secondary fw-bold display-6 d-block mb-3">03</span>
+                            <h3 class="h5 text-white fw-bold mb-2">Pahami Tingkat Kecocokanmu</h3>
+                            <p class="text-secondary small mb-0">
+                                Lihat skor kecocokan dan skill apa saja yang masih perlu kamu tingkatkan.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3 reveal reveal-delay-3">
+                        <div class="glass-card p-4 rounded-4 h-100 step-card">
+                            <span class="step-num text-secondary fw-bold display-6 d-block mb-3">04</span>
+                            <h3 class="h5 text-white fw-bold mb-2">Lamar dengan Percaya Diri</h3>
+                            <p class="text-secondary small mb-0">
+                                Lamar pekerjaan dengan keyakinan penuh karena kamu tahu kamu cocok untuk posisi tersebut.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- COMPARISON SECTION -->
+        <section id="perbandingan" class="comparison-section py-5">
+            <div class="container py-5">
+                
+                <div class="text-center max-w-700 mx-auto mb-5 reveal">
+                    <h2 class="section-title display-5 fw-bold text-white mb-3">
+                        Berhenti Scroll. Mulai Cocokkan.
+                    </h2>
+                    <p class="section-subtitle lead text-secondary">
+                        Berhenti mencari tanpa arah. Mulai temukan pekerjaan yang benar-benar sesuai denganmu.
+                    </p>
+                </div>
+
+                <div class="row g-4 justify-content-center">
+                    
+                    <!-- Pencarian Tradisional -->
+                    <div class="col-md-6 reveal">
+                        <div class="glass-card p-5 rounded-4 h-100 comparison-card comparison-bad">
+                            <h3 class="h4 text-white fw-bold mb-4 pb-3 border-bottom-subtle">Pencarian Kerja Tradisional</h3>
+                            <ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+                                <li class="d-flex align-items-center gap-2 text-secondary"><i class="bi bi-x-circle fs-5 text-danger-soft"></i> Membuka banyak tab lowongan</li>
+                                <li class="d-flex align-items-center gap-2 text-secondary"><i class="bi bi-x-circle fs-5 text-danger-soft"></i> Membandingkan requirement satu per satu</li>
+                                <li class="d-flex align-items-center gap-2 text-secondary"><i class="bi bi-x-circle fs-5 text-danger-soft"></i> Menghabiskan waktu yang sangat lama</li>
+                                <li class="d-flex align-items-center gap-2 text-secondary"><i class="bi bi-x-circle fs-5 text-danger-soft"></i> Sulit menentukan tingkat kecocokan</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- JobFit -->
+                    <div class="col-md-6 reveal reveal-delay-1">
+                        <div class="glass-card p-5 rounded-4 h-100 comparison-card comparison-good">
+                            <h3 class="h4 text-white fw-bold mb-4 pb-3 border-bottom-subtle d-flex align-items-center justify-content-between">
+                                <span>JobFit</span>
+                                <span class="badge bg-dark-pill text-accent x-small">Pencocokan Cerdas</span>
+                            </h3>
+                            <ul class="list-unstyled d-flex flex-column gap-3 mb-0">
+                                <li class="d-flex align-items-center gap-2 text-white"><i class="bi bi-check-circle text-accent fs-5"></i> Skor kecocokan instan</li>
+                                <li class="d-flex align-items-center gap-2 text-white"><i class="bi bi-check-circle text-accent fs-5"></i> Skill gap terlihat jelas</li>
+                                <li class="d-flex align-items-center gap-2 text-white"><i class="bi bi-check-circle text-accent fs-5"></i> Fokus hanya pada lowongan yang relevan</li>
+                                <li class="d-flex align-items-center gap-2 text-white"><i class="bi bi-check-circle text-accent fs-5"></i> Melamar dengan lebih percaya diri</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- CONTACT SECTION -->
+        <section id="kontak" class="contact-section py-5">
+            <div class="container py-5">
+                
+                <div class="row g-5 align-items-start">
+
+                    <!-- Info Kontak -->
+                    <div class="col-lg-5 reveal">
+                        <div class="mb-4">
+                            <h2 class="section-title display-5 fw-bold text-white mb-3">Hubungi Kami</h2>
+                            <p class="section-subtitle lead text-secondary">
+                                Ada pertanyaan atau ingin tahu lebih banyak tentang JobFit? Kami siap membantu.
+                            </p>
+                        </div>
+
+                        <div class="d-flex flex-column gap-4 mt-4">
+                            <div class="d-flex align-items-start gap-3">
+                                <div class="contact-icon-box">
+                                    <i class="bi bi-envelope text-accent"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white fw-semibold mb-1 small">Email</p>
+                                    <p class="text-secondary small mb-0">kelompok15g@jobfit.id</p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-start gap-3">
+                                <div class="contact-icon-box">
+                                    <i class="bi bi-geo-alt text-accent"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white fw-semibold mb-1 small">Lokasi</p>
+                                    <p class="text-secondary small mb-0">Surabaya, Indonesia</p>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-start gap-3">
+                                <div class="contact-icon-box">
+                                    <i class="bi bi-people text-accent"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white fw-semibold mb-1 small">Tim Kami</p>
+                                    <p class="text-secondary small mb-0">Kelompok 15 — Celerates</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Kontak -->
+                    <div class="col-lg-7 reveal reveal-delay-1">
+                        <div class="glass-card p-4 p-md-5 rounded-4">
+                            <form id="jobfitContactForm">
+                                <div class="row g-4">
+                                    <div class="col-sm-6">
+                                        <label for="contactName" class="form-label text-white small">Nama Lengkap</label>
+                                        <input type="text" class="form-control clean-input" id="contactName" placeholder="Nama kamu" required>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <label for="contactEmail" class="form-label text-white small">Email</label>
+                                        <input type="email" class="form-control clean-input" id="contactEmail" placeholder="email@kamu.com" required>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label for="contactSubject" class="form-label text-white small">Subjek</label>
+                                        <input type="text" class="form-control clean-input" id="contactSubject" placeholder="Topik pesanmu" required>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label for="contactMessage" class="form-label text-white small">Pesan</label>
+                                        <textarea class="form-control clean-input" id="contactMessage" rows="5" placeholder="Tuliskan pesanmu di sini..." required></textarea>
+                                    </div>
+
+                                    <div class="col-12 pt-2">
+                                        <button type="submit" class="btn btn-accent-primary w-100 py-3" id="submitBtn">
+                                            <span id="submitText">Kirim Pesan</span>
+                                            <span id="submitSpinner" class="d-none ms-2"><i class="bi bi-arrow-clockwise spin-icon"></i></span>
+                                        </button>
+                                    </div>
+
+                                    <!-- Success Alert -->
+                                    <div class="col-12 d-none" id="formSuccess">
+                                        <div class="alert-success-custom p-3 rounded-3 d-flex align-items-center gap-2">
+                                            <i class="bi bi-check-circle-fill text-accent"></i>
+                                            <span class="text-white small">Pesan berhasil dikirim! Kami akan segera menghubungimu.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="site-footer py-5">
+        <div class="container">
+            
+            <!-- Footer Top -->
+            <div class="row g-5 mb-5">
+                
+                <!-- Brand & Deskripsi -->
+                <div class="col-lg-4">
+                    <a href="#beranda" class="d-flex align-items-center gap-2 mb-3 text-decoration-none">
+                        <span class="brand-text">JobFit</span>
+                        <span class="brand-dot"></span>
+                    </a>
+                    <p class="text-secondary small mb-4">
+                        Platform pencocokan pekerjaan berbasis skill yang membantu para pencari kerja menemukan peluang yang benar-benar sesuai dengan potensi mereka.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="social-icon" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-icon" aria-label="Twitter/X"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="social-icon" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+
+                <!-- Navigasi -->
+                <div class="col-6 col-lg-2 offset-lg-1">
+                    <p class="text-white fw-semibold small mb-3">Navigasi</p>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#beranda" class="footer-link">Beranda</a></li>
+                        <li><a href="#fitur" class="footer-link">Fitur</a></li>
+                        <li><a href="#cara-kerja" class="footer-link">Cara Kerja</a></li>
+                        <li><a href="#kontak" class="footer-link">Kontak</a></li>
+                    </ul>
+                </div>
+
+                <!-- Fitur -->
+                <div class="col-6 col-lg-2">
+                    <p class="text-white fw-semibold small mb-3">Fitur</p>
+                    <ul class="list-unstyled d-flex flex-column gap-2">
+                        <li><a href="#fitur" class="footer-link">Skor Kecocokan</a></li>
+                        <li><a href="#fitur" class="footer-link">Filter Cerdas</a></li>
+                        <li><a href="#fitur" class="footer-link">Simpan Lowongan</a></li>
+                        <li><a href="#fitur" class="footer-link">Wawasan Karier</a></li>
+                    </ul>
+                </div>
+
+                <!-- Hubungi Kami -->
+                <div class="col-lg-3">
+                    <p class="text-white fw-semibold small mb-3">Mulai Sekarang</p>
+                    <p class="text-secondary small mb-3">Cek seberapa cocok skillmu dengan pekerjaan impianmu secara gratis.</p>
+                    <button class="btn btn-accent-primary btn-sm px-4" data-bs-toggle="modal" data-bs-target="#fitCalculatorModal">
+                        Cek Kecocokanmu
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom pt-4 d-flex flex-column flex-sm-row align-items-center justify-content-between gap-3">
+                <p class="text-secondary x-small mb-0">
+                    &copy; 2024 JobFit — Dibuat dengan <i class="bi bi-heart-fill text-accent mx-1"></i> oleh <span class="text-white">Kelompok 15</span>
+                </p>
+                <div class="d-flex gap-3">
+                    <a href="#" class="footer-link x-small">Kebijakan Privasi</a>
+                    <a href="#" class="footer-link x-small">Syarat & Ketentuan</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+
+    <!-- MODAL FIT CALCULATOR -->
+    <div class="modal fade" id="fitCalculatorModal" tabindex="-1" aria-labelledby="fitCalculatorModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content glass-modal rounded-4 text-white">
+                <div class="modal-header border-bottom-subtle">
+                    <h5 class="modal-title fw-bold" id="fitCalculatorModalLabel">Kalkulator Kecocokan Skill</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="mb-4">
+                        <label class="form-label text-white small fw-semibold">Posisi yang Dituju</label>
+                        <select class="form-select clean-input" id="modalRoleSelect">
+                            <option value="business-analyst" selected>Business Analyst (PT Digital Nusantara)</option>
+                            <option value="frontend-dev">Frontend Developer</option>
+                            <option value="data-scientist">Data Scientist</option>
+                            <option value="product-manager">Product Manager</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label text-white small fw-semibold">Pilih Skill yang Kamu Miliki:</label>
+                        <div class="row g-2" id="modalSkillsList">
+                            <!-- Diisi oleh JS -->
+                        </div>
+                    </div>
+
+                    <div class="p-3 rounded-3 bg-secondary-card border-glass text-center" id="modalResultBox">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="text-start">
+                                <span class="text-secondary x-small d-block">SKOR KECOCOKAN</span>
+                                <h6 class="text-white fw-semibold mb-0" id="modalStatusTitle">Pilih skill untuk menghitung</h6>
+                            </div>
+                            <span class="display-6 fw-bold text-accent mb-0" id="modalScoreValue">0%</span>
+                        </div>
+                        <div class="mt-3">
+                            <div class="progress custom-progress bg-secondary-dark" style="height: 6px;">
+                                <div class="progress-bar bg-accent" id="modalProgressBar" role="progressbar" style="width: 0%; transition: width 0.4s ease;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-top-subtle">
+                    <button type="button" class="btn btn-clean-secondary btn-sm" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-accent-primary btn-sm px-4" data-bs-dismiss="modal">
+                        Jelajahi Lowongan yang Cocok
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap 5.3 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+</html>
